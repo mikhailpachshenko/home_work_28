@@ -3,16 +3,16 @@ package main
 import (
 	"fmt"
 	"io"
-	ss "module/pkg/repo/students_repo"
-	s "module/pkg/student"
+	"module/pkg/repo/students_repo"
+	"module/pkg/student"
 )
 
 func main() {
 
-	storage := ss.NewStudentsStorage()
+	storage := students_repo.NewStudentsStorage()
 
 	for {
-		new := s.NewStudent()
+		new := student.NewStudent()
 		fmt.Println("Введите имя, возраст и оценку студента:")
 		_, err := fmt.Scan(&new.Name, &new.Age, &new.Grade)
 		if err == io.EOF {
